@@ -1,56 +1,70 @@
-[gd_scene load_steps=6 format=3 uid="uid://3gv8c2qr0bbm"]
+[gd_scene load_steps=8 format=3 uid="uid://3gv8c2qr0bbm"]
 
 [ext_resource type="PackedScene" uid="uid://cdmpkx8dj5svg" path="res://player_scene.tscn" id="1_r8n3g"]
 [ext_resource type="Texture2D" uid="uid://cmlw3v4f8ff3v" path="res://Sprites/spr_background.png" id="2_88ae7"]
 [ext_resource type="Texture2D" uid="uid://dwm0auulsmwwo" path="res://Sprites/spr_moon.png" id="3_5hyut"]
 [ext_resource type="Texture2D" uid="uid://clbiwaua4of2f" path="res://Sprites/spr_ground_A.png" id="4_isufn"]
 [ext_resource type="Texture2D" uid="uid://c3qa7ue0v8g6q" path="res://Sprites/spr_foreground_A.png" id="5_kl6k7"]
+[ext_resource type="Script" path="res://Label.gd" id="6_yua1h"]
+[ext_resource type="AudioStream" uid="uid://bpynyktadtg6g" path="res://07. CD Track 07.mp3" id="7_6e05u"]
 
 [node name="level" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_r8n3g")]
+position = Vector2(843, 403)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position_smoothing_enabled = true
+position = Vector2(0, -185)
 drag_horizontal_enabled = true
-drag_horizontal_offset = 1.0
+drag_horizontal_offset = 0.8
 
-[node name="background" type="ParallaxBackground" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="background"]
-motion_scale = Vector2(0.2, 0.2)
-motion_mirroring = Vector2(2106.5, 0)
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -334)
+motion_mirroring = Vector2(2340, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="background/ParallaxLayer"]
-position = Vector2(0, 21)
-scale = Vector2(0.9, 0.9)
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1170, 540)
 texture = ExtResource("2_88ae7")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="background"]
-position = Vector2(756, 0)
-motion_scale = Vector2(0.2, 0.2)
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.01, 0.01)
 
-[node name="Sprite2D" type="Sprite2D" parent="background/ParallaxLayer2"]
-position = Vector2(393, 21)
-scale = Vector2(0.9, 0.9)
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(2474, -11)
 texture = ExtResource("3_5hyut")
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="background"]
-motion_mirroring = Vector2(2106.5, 0)
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2340, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="background/ParallaxLayer3"]
-position = Vector2(0, 21)
-scale = Vector2(0.9, 0.9)
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(1170, 355)
 texture = ExtResource("4_isufn")
 
-[node name="foreground" type="ParallaxBackground" parent="."]
-layer = 1
+[node name="foregorund" type="ParallaxBackground" parent="."]
+layer = 100
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="foreground"]
-motion_scale = Vector2(2.5, 2.5)
-motion_mirroring = Vector2(2106.5, 2.08165e-12)
+[node name="ParallaxLayer" type="ParallaxLayer" parent="foregorund"]
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(2340, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="foreground/ParallaxLayer"]
-position = Vector2(0, 501)
-scale = Vector2(0.9, 0.9)
+[node name="Sprite2D" type="Sprite2D" parent="foregorund/ParallaxLayer"]
+position = Vector2(1170, 277)
 texture = ExtResource("5_kl6k7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 87.0
+offset_top = 67.0
+offset_right = 713.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 36
+text = "heyo le cowboy boiteux, il s'élance...
+Mais où va-t-il... :clope:"
+script = ExtResource("6_yua1h")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6e05u")
+autoplay = true

@@ -2,36 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://bcthe7dk8edk1" path="res://Sprites/spr_character_pieces.png" id="1_p2c7q"]
 
-[sub_resource type="Animation" id="Animation_nj8hs"]
-resource_name = "idle"
-length = 2.52
-loop_mode = 1
-step = 0.03
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton2D/hips/chest:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.14, 2.52),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-7, -31), Vector2(-3, -27), Vector2(-7, -31)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Skeleton2D/hips/chest/head:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 2.52),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0750492, 0.0]
-}
-
 [sub_resource type="Animation" id="Animation_os8yg"]
 length = 0.001
 tracks/0/type = "value"
@@ -213,6 +183,36 @@ tracks/14/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_nj8hs"]
+resource_name = "idle"
+length = 2.52
+loop_mode = 1
+step = 0.03
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/hips/chest:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.14, 2.52),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-7, -31), Vector2(-3, -27), Vector2(-7, -31)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/hips/chest/head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 2.52),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0750492, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_h4a32"]
@@ -441,12 +441,10 @@ rest = Transform2D(1, 0, 0, 1, 82, 152)
 
 [node name="chest" type="Bone2D" parent="Skeleton2D/hips"]
 position = Vector2(-7, -31)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -7, -31)
 
 [node name="head" type="Bone2D" parent="Skeleton2D/hips/chest"]
 position = Vector2(0, -73)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 0, -73)
 auto_calculate_length_and_angle = false
 length = 20.871
@@ -454,12 +452,10 @@ bone_angle = -3.429
 
 [node name="armR" type="Bone2D" parent="Skeleton2D/hips/chest"]
 position = Vector2(-35, -57)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -35, -57)
 
 [node name="handR" type="Bone2D" parent="Skeleton2D/hips/chest/armR"]
 position = Vector2(-18, 88)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -18, 88)
 auto_calculate_length_and_angle = false
 length = 25.216
@@ -467,12 +463,10 @@ bone_angle = 81.081
 
 [node name="armL" type="Bone2D" parent="Skeleton2D/hips/chest"]
 position = Vector2(17, -57)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 17, -57)
 
 [node name="handL" type="Bone2D" parent="Skeleton2D/hips/chest/armL"]
 position = Vector2(26, 80)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 26, 80)
 auto_calculate_length_and_angle = false
 length = 25.216
@@ -480,17 +474,14 @@ bone_angle = 61.622
 
 [node name="legR" type="Bone2D" parent="Skeleton2D/hips"]
 position = Vector2(-19, 4)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -19, 4)
 
 [node name="calfR" type="Bone2D" parent="Skeleton2D/hips/legR"]
 position = Vector2(-8, 74)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -9, 74)
 
 [node name="footR" type="Bone2D" parent="Skeleton2D/hips/legR/calfR"]
 position = Vector2(-11, 94)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -11, 94)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -502,7 +493,6 @@ rest = Transform2D(1, 0, 0, 1, 20, 6)
 
 [node name="calfL" type="Bone2D" parent="Skeleton2D/hips/legL"]
 position = Vector2(0, 74)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 0, 74)
 
 [node name="footL" type="Bone2D" parent="Skeleton2D/hips/legL/calfL"]
