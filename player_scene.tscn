@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdmpkx8dj5svg"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_pidvk"]
+[ext_resource type="PackedScene" uid="uid://26wqqn6qyew" path="res://player_mesh.tscn" id="2_l8woh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r5olh"]
+radius = 47.0
+height = 318.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_pidvk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_r5olh")
+
+[node name="meshHandler" type="Node2D" parent="."]
+
+[node name="mesh" parent="meshHandler" instance=ExtResource("2_l8woh")]
+position = Vector2(-78, -173)
