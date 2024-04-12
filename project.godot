@@ -21,6 +21,10 @@ window/size/viewport_width=2340
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
