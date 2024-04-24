@@ -23,7 +23,17 @@ func _input(event):
 			drag = false
 			touchpos = Vector2.ZERO
 			direction = 0
-	if drag==true:touchpos = event.position
+	if drag==true:
+		touchpos = event.position
+			
+
+func _process(delta):
+	var distance = $Control.global_position.distance_to(touchpos)
+	
+
+	$Control2.global_position = touchpos.limit_length(300)
+	direction = Vector2(touchpos-position).normalized()
+	input_dir.emit(direction)
 
 func _display_UI_back():
 	$Control.scale = Vector2.ONE
@@ -32,8 +42,3 @@ func _display_UI_back():
 	tween.tween_property($Control,"scale",Vector2(.5,.5),.2)
 	await tween.finished
 	$Control/TextureRect2.visible =true
-
-func _process(delta):
-	$Control2.global_position = touchpos
-	direction = Vector2(touchpos-position).normalized()
-	input_dir.emit(direction)
